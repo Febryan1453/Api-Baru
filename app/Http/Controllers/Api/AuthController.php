@@ -22,7 +22,6 @@ class AuthController extends Controller
      */
     public function registerUser(Request $req)
     {   
-
         $validate = Validator::make($req->all(),[
             'name'                      => 'required',
             'email'                     => 'required|unique:users',

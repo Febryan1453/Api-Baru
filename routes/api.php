@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,16 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/ex', function () {
-    return 'Hello World';
-});
+// Route::get('/ex', function () {
+//     return 'Hello World';
+// });
 
 Route::controller(AuthController::class)->group(function(){
     Route::post('/register', 'registerUser');
     Route::post('/login', 'loginUser');
+});
+
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('/category', 'getCategory');
+    Route::get('/category/{id_category}', 'getPerCategory');
 });
