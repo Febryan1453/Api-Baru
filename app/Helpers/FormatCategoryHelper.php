@@ -18,7 +18,7 @@ class FormatCategoryHelper
         if($dataCategory !== null){
 
             $data = $dataCategory ->map(function ($item) {
-                return FormatCategoryHelper::formatResultCategory($item);
+                return FormatProductHelper::formatResultProduct($item);
             });
             return response()->json([
                 'status'    => $status,

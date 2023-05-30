@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pruducts', function (Blueprint $table) {
+            $urlGambar = "https://upload.jaknot.com/2023/03/images/products/d847c6/original/skmei-jam-tangan-kasual-digital-analog-pria-1389.jpg";
             $table->id();
             $table->string('category_id')->nullable();
             $table->string('product_name')->nullable();
+            $table->string('product_image')->default($urlGambar);
             $table->integer('price')->nullable();
             $table->integer('qty')->nullable();
             $table->text('description')->nullable();
