@@ -15,16 +15,18 @@ class FormatCategoryHelper
 
     public static function resultStatus($status, $message, $dataCategory = null)
     {
-        if($dataCategory !== null){
+        if($dataCategory){
 
-            $data = $dataCategory ->map(function ($item) {
-                return FormatProductHelper::formatResultProduct($item);
+            $data = $dataCategory->map(function ($item) {
+                return FormatCategoryHelper::formatResultCategory($item);
             });
+
             return response()->json([
                 'status'    => $status,
                 'message'   => $message,
                 'category'  => $data
             ]);
+            
         }else{
             return response()->json([
                 'status'    => $status,

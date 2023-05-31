@@ -19,4 +19,24 @@ class FormatProductHelper
             'desc'          => $product->description,
         ];
     }
+
+    public static function resultStatus($status, $message, $dataProduct = null)
+    {
+        if($dataProduct !== null){
+            $data = $dataProduct->map(function ($item) {
+                return FormatProductHelper::formatResultProduct($item);
+            });
+            return response()->json([
+                'status'    => $status,
+                'message'   => $message,
+                'product'   => $data
+            ]);
+        }else{
+            return response()->json([
+                'status'    => $status,
+                'message'   => $message
+            ]);
+        }
+        
+    }
 }

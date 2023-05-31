@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ProdukController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +33,8 @@ Route::controller(AuthController::class)->group(function(){
 Route::controller(CategoryController::class)->group(function(){
     Route::get('/category', 'getCategory');
     Route::get('/category/{id_category}', 'getPerCategory');
+});
+
+Route::controller(ProdukController::class)->group(function(){
+    Route::get('/product', 'getProduct');
 });

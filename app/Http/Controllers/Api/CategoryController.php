@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helpers\FormatCategoryHelper;
+use App\Helpers\FormatProductHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use App\Models\Pruduct;
@@ -25,10 +26,9 @@ class CategoryController extends Controller
         $productCategory = Pruduct::where('category_id',$id_category)->get();
 
         if ($productCategory->isEmpty()) {
-            $productCategory = null;
-            return FormatCategoryHelper::resultStatus(false, "Tidak ada", $productCategory);
+            return FormatCategoryHelper::resultStatus(false, "Data produk tidak ditemukan");
         } else {
-            return FormatCategoryHelper::resultStatus(true, "Berhasil get produk per kategori", $productCategory);
+            return FormatProductHelper::resultStatus(true, "Berhasil get produk per kategori", $productCategory);
         }
 
     }
